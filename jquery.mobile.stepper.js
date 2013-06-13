@@ -34,7 +34,6 @@
 			
 			// Bind increment and decrement functions to click event
 			$el.find('.inc, .dec').click(function(){
-				$input.trigger('change');
 				var $btn = $(this),
 					oldVal = parseInt($input.val());
 				
@@ -43,7 +42,7 @@
 				} else {
 					var newVal = oldVal == min ? min : oldVal - parseInt(o.step);
 				}
-				$input.val(newVal);
+				$input.val(newVal).trigger('change');
 			}).buttonMarkup({theme: o.theme}); // Enhance button markup
 
 			$el.addClass( "ui-controlgroup ui-controlgroup-" + o.direction );
